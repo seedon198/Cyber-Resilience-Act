@@ -16,6 +16,12 @@
       "pattern": "^mailto:"
     },
     {
+      "pattern": "^https://github\\.com/.*/wiki/"
+    },
+    {
+      "pattern": "^https://www\\.enisa\\.europa\\.eu/"
+    },
+    {
       "pattern": "news-updates\\.md$"
     },
     {
