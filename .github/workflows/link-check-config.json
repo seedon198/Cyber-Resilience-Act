@@ -14,6 +14,12 @@
     },
     {
       "pattern": "^mailto:"
+    },
+    {
+      "pattern": "news-updates\\.md$"
+    },
+    {
+      "pattern": "docs/news-updates\\.md$"
     }
   ],
   "timeout": "20s",

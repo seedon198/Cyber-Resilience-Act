@@ -14,7 +14,7 @@
 | 2025-07-20 | Industry Readiness Assessment Published | ENISA | Medium |
 | 2025-07-15 | Hardware Security Standards Alignment | Industry | Medium |
 
-**[View all latest news and developments →](docs/news-updates.md)**
+**[View all latest news and developments →](https://github.com/seedon198/Cyber-Resilience-Act/wiki/Latest-News)**
 
 **Comprehensive repository for EU Cyber Resilience Act compliance, resources, and practical implementation guidance**
 
