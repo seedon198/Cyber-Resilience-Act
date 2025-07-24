@@ -60,7 +60,7 @@ This checklist provides comprehensive guidance for assessing Industrial Control 
   - VPN security for external connections
   - Time-based access restrictions
 
-#### Assessment Criteria
+#### Network Security Assessment Criteria
 | Requirement | Status | Evidence | Notes |
 |-------------|--------|----------|-------|
 | Network segmentation per IEC 62443-3-2 | ⚪ | | |
@@ -83,7 +83,7 @@ This checklist provides comprehensive guidance for assessing Industrial Control 
   - Configuration change control
   - Backup and recovery procedures
 
-#### Assessment Criteria
+#### Device Security Assessment Criteria
 | Component Type | Secure Configuration | Access Control | Monitoring | Compliance Status |
 |----------------|---------------------|----------------|------------|-------------------|
 | PLCs | ⚪ | ⚪ | ⚪ | |
@@ -106,7 +106,7 @@ This checklist provides comprehensive guidance for assessing Industrial Control 
   - Secure tunneling protocols
   - Protocol-specific security features
 
-#### Assessment Criteria
+#### Protocol Security Assessment Criteria
 | Protocol | Encryption | Authentication | Integrity | Availability | Status |
 |----------|------------|----------------|-----------|--------------|--------|
 | Modbus | ⚪ | ⚪ | ⚪ | ⚪ | |
@@ -129,7 +129,7 @@ This checklist provides comprehensive guidance for assessing Industrial Control 
   - Emergency patching procedures
   - Legacy system exception handling
 
-#### Assessment Criteria
+#### Vulnerability Management Assessment Criteria
 | Area | Implementation | Testing | Documentation | Status |
 |------|----------------|---------|---------------|--------|
 | Vulnerability Scanning | ⚪ | ⚪ | ⚪ | |
@@ -152,7 +152,7 @@ This checklist provides comprehensive guidance for assessing Industrial Control 
   - Backup system activation
   - Supply chain impact assessment
 
-#### Assessment Criteria
+#### Incident Response Assessment Criteria
 | Capability | Documented | Tested | Trained | Status |
 |------------|------------|--------|---------|--------|
 | Incident Detection | ⚪ | ⚪ | ⚪ | |

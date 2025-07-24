@@ -113,7 +113,7 @@ IoT devices in Europe. This repository serves as the **definitive resource hub**
 
 ## Contributing
 
-We welcome contributions from the cybersecurity and compliance community! See our 
+We welcome contributions from the cybersecurity and compliance community! See our  
 [Contributing Guidelines](CONTRIBUTING.md) for:
 
 - **Content contributions** (documentation, checklists, case studies)
