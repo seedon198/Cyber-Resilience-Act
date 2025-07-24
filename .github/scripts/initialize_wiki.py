@@ -906,6 +906,834 @@ Rate your preparation:
 *Need help interpreting your results? Visit our [Community Discussions](https://github.com/seedon198/Cyber-Resilience-Act/discussions) or consult the [FAQ](Frequently-Asked-Questions).*
 """
 
+    def get_legal_requirements_content(self):
+        """Generate Legal Requirements page content"""
+        return """# Legal Requirements
+
+## CRA Legal Framework
+
+### Regulation Overview
+The EU Cyber Resilience Act (Regulation EU 2024/2847) establishes binding legal requirements for cybersecurity of digital products placed on the EU market.
+
+### Essential Requirements
+
+#### Article 10: Essential Cybersecurity Requirements
+1. **Secure by Design and by Default**
+   - Security measures implemented from the design phase
+   - Products delivered with secure default settings
+   - Risk-based approach to security measures
+
+2. **Vulnerability Management**
+   - Coordinated vulnerability disclosure processes
+   - Security update mechanisms for product lifecycle
+   - Incident response capabilities
+
+3. **Data Protection and Privacy**
+   - Protection of personal data processed by the product
+   - Data minimization principles
+   - Transparency about data processing
+
+### Legal Obligations by Role
+
+#### Manufacturers (Article 11)
+- Ensure compliance with essential requirements
+- Conduct conformity assessments
+- Draw up technical documentation
+- Report cybersecurity incidents
+- Provide security updates
+
+#### Importers (Article 15)
+- Verify manufacturer compliance
+- Ensure CE marking and documentation
+- Report non-compliance to authorities
+- Cooperate with market surveillance
+
+#### Distributors (Article 16)
+- Verify CE marking before distribution
+- Report suspicious products
+- Cooperate with enforcement authorities
+- Maintain traceability records
+
+### Penalties and Enforcement
+
+#### Administrative Fines
+- Up to €15,000,000 or 2.5% of annual worldwide turnover
+- Proportionate to violation severity
+- Consider cooperation and remedial measures
+
+#### Market Surveillance Powers
+- Product testing and inspection
+- Request information and documentation
+- Order product withdrawal or recall
+- Impose temporary restrictions
+
+### Legal Compliance Checklist
+
+- [ ] Essential requirements implemented and documented
+- [ ] Conformity assessment completed (self or third-party)
+- [ ] CE marking affixed and Declaration of Conformity signed
+- [ ] Technical documentation maintained
+- [ ] Incident reporting procedures established
+- [ ] Security update mechanisms operational
+
+---
+
+*For technical implementation guidance, see [Technical Implementation](Technical-Implementation). For assessment procedures, visit [Conformity Assessment](Conformity-Assessment).*
+"""
+
+    def get_technical_standards_content(self):
+        """Generate Technical Standards page content"""
+        return """# Technical Standards
+
+## Harmonized Standards for CRA Compliance
+
+### Overview
+Harmonized standards provide technical specifications for meeting CRA essential requirements. Compliance with harmonized standards creates presumption of conformity.
+
+### Core Standards Framework
+
+#### EN 303 645 (Consumer IoT)
+- **Scope**: Consumer Internet of Things cybersecurity
+- **Key Requirements**:
+  - No universal default passwords
+  - Implement vulnerability disclosure policy
+  - Keep software updated
+  - Securely store sensitive security parameters
+  - Communicate securely
+
+#### IEC 62443 Series (Industrial Systems)
+- **IEC 62443-4-1**: Product development lifecycle requirements
+- **IEC 62443-4-2**: Component security requirements
+- **IEC 62443-3-3**: System security requirements and security levels
+- **Applications**: Industrial control systems, OT environments
+
+#### ISO/IEC 27001 (Information Security Management)
+- **Scope**: Information security management systems
+- **Relevance**: Organizational security controls
+- **Implementation**: Risk management framework
+
+### Product-Specific Standards
+
+#### Software Products
+- **ISO/IEC 25010**: Software quality model
+- **ISO/IEC 27034**: Application security
+- **NIST Secure Software Development Framework (SSDF)**
+
+#### Hardware Products
+- **Common Criteria (ISO/IEC 15408)**: Security evaluation criteria
+- **FIPS 140-2/3**: Cryptographic modules
+- **Hardware security requirements**
+
+#### Network Equipment
+- **ETSI EN 303 645**: Cybersecurity for consumer IoT
+- **RFC 4949**: Internet Security Glossary
+- **Network security protocols**
+
+### Implementation Guidance
+
+#### Standards Selection Process
+1. **Product Classification**: Determine applicable product category
+2. **Risk Assessment**: Identify relevant security requirements
+3. **Standards Mapping**: Select appropriate harmonized standards
+4. **Gap Analysis**: Compare current implementation with requirements
+5. **Implementation Plan**: Develop compliance roadmap
+
+#### Testing and Validation
+- **Conformity Testing**: Verify compliance with standard requirements
+- **Penetration Testing**: Validate security implementation
+- **Vulnerability Assessment**: Identify security weaknesses
+- **Documentation Review**: Ensure complete technical documentation
+
+### Certification Bodies
+
+#### Notified Bodies
+- Designated by EU member states
+- Conduct third-party conformity assessments
+- Issue certificates for Class II products
+- Monitor ongoing compliance
+
+#### Testing Laboratories
+- Accredited testing facilities
+- Perform conformity testing
+- Issue test reports
+- Support certification process
+
+---
+
+*For compliance assessment procedures, see [Conformity Assessment](Conformity-Assessment). For implementation guidance, visit [Technical Implementation](Technical-Implementation).*
+"""
+
+    def get_risk_assessment_content(self):
+        """Generate Risk Assessment page content"""
+        return """# Risk Assessment
+
+## CRA Risk Assessment Framework
+
+### Overview
+Risk assessment is fundamental to CRA compliance, informing security measures and determining product classification.
+
+### Risk Assessment Methodology
+
+#### Step 1: Asset Identification
+- **Digital Assets**: Software, firmware, data
+- **Physical Assets**: Hardware components, interfaces
+- **Operational Assets**: Processes, configurations
+- **External Dependencies**: Third-party components, services
+
+#### Step 2: Threat Modeling
+- **Threat Actors**: Nation-states, cybercriminals, insiders
+- **Attack Vectors**: Network, physical, supply chain
+- **Attack Scenarios**: Data breach, service disruption, manipulation
+- **Threat Intelligence**: Current threat landscape analysis
+
+#### Step 3: Vulnerability Analysis
+- **Design Vulnerabilities**: Architecture weaknesses
+- **Implementation Vulnerabilities**: Code-level flaws
+- **Configuration Vulnerabilities**: Insecure settings
+- **Operational Vulnerabilities**: Process gaps
+
+#### Step 4: Impact Assessment
+- **Confidentiality Impact**: Data exposure consequences
+- **Integrity Impact**: Data/system manipulation effects
+- **Availability Impact**: Service disruption consequences
+- **Safety Impact**: Physical harm potential
+
+#### Step 5: Risk Calculation
+- **Risk = Likelihood × Impact**
+- **Qualitative Assessment**: High/Medium/Low categories
+- **Quantitative Assessment**: Numerical risk values
+- **Risk Matrix**: Visual risk representation
+
+### Product Classification Risk Criteria
+
+#### Class I (Standard Risk)
+- Limited cybersecurity functionality
+- Minimal impact if compromised
+- Basic security requirements sufficient
+- Self-assessment permitted
+
+#### Class II (Important Risk)
+- Significant cybersecurity implications
+- High impact if compromised
+- Enhanced security requirements
+- Third-party assessment required
+
+### Risk Treatment Strategies
+
+#### Risk Mitigation
+- **Technical Controls**: Security features, encryption
+- **Procedural Controls**: Policies, training
+- **Physical Controls**: Access restrictions, monitoring
+
+#### Risk Transfer
+- **Insurance**: Cyber liability coverage
+- **Contracts**: Liability allocation with suppliers
+- **Certification**: Third-party validation
+
+#### Risk Acceptance
+- **Residual Risk**: Remaining risk after treatment
+- **Risk Tolerance**: Acceptable risk levels
+- **Management Approval**: Formal risk acceptance
+
+### Continuous Risk Management
+
+#### Regular Reviews
+- **Annual Assessments**: Comprehensive risk review
+- **Quarterly Updates**: Threat landscape changes
+- **Incident-Driven**: Post-incident reassessment
+- **Change-Triggered**: Product modification impacts
+
+#### Risk Monitoring
+- **Key Risk Indicators**: Measurable risk metrics
+- **Threat Intelligence**: Emerging threat awareness
+- **Vulnerability Scanning**: Automated detection
+- **Security Metrics**: Performance measurement
+
+### Documentation Requirements
+
+#### Risk Assessment Report
+- Executive summary
+- Methodology description
+- Asset inventory
+- Threat analysis
+- Vulnerability findings
+- Risk evaluation
+- Treatment recommendations
+
+#### Risk Register
+- Risk identification
+- Risk scoring
+- Treatment status
+- Owner assignment
+- Review schedule
+
+---
+
+*For implementation guidance, see [Technical Implementation](Technical-Implementation). For compliance requirements, visit [Legal Requirements](Legal-Requirements).*
+"""
+
+    def get_conformity_assessment_content(self):
+        """Generate Conformity Assessment page content"""
+        return """# Conformity Assessment
+
+## CRA Conformity Assessment Procedures
+
+### Overview
+Conformity assessment demonstrates that products meet CRA essential requirements before market placement.
+
+### Assessment Procedures by Product Class
+
+#### Module A: Internal Production Control (Class I)
+- **Self-Assessment**: Manufacturer conducts internal evaluation
+- **Documentation**: Technical documentation preparation
+- **Declaration**: EU Declaration of Conformity
+- **CE Marking**: Affixing conformity marking
+- **No Third-Party**: No notified body involvement required
+
+#### Module B + C: Type Examination + Conformity to Type (Class II)
+- **Type Examination**: Notified body evaluates product design
+- **Certificate**: EU Type Examination Certificate issued
+- **Production Conformity**: Ongoing compliance verification
+- **Surveillance**: Periodic notified body oversight
+
+### Assessment Process
+
+#### Phase 1: Pre-Assessment
+1. **Product Classification**: Determine Class I or Class II
+2. **Standards Selection**: Identify applicable harmonized standards
+3. **Gap Analysis**: Compare current state with requirements
+4. **Documentation Planning**: Prepare required documentation
+
+#### Phase 2: Technical Documentation
+1. **Product Description**: Detailed product specifications
+2. **Risk Assessment**: Comprehensive security risk analysis
+3. **Security Architecture**: Design documentation
+4. **Test Results**: Conformity testing evidence
+5. **Instructions**: User and installation guidance
+
+#### Phase 3: Testing and Evaluation
+1. **Conformity Testing**: Verify standard compliance
+2. **Penetration Testing**: Security validation
+3. **Vulnerability Assessment**: Identify weaknesses
+4. **Documentation Review**: Verify completeness
+
+#### Phase 4: Certification (Class II Only)
+1. **Notified Body Selection**: Choose accredited assessor
+2. **Application Submission**: Provide complete documentation
+3. **Technical Review**: Expert evaluation
+4. **Certificate Issuance**: Formal compliance confirmation
+
+### Notified Bodies
+
+#### Selection Criteria
+- **Accreditation**: National authority designation
+- **Competence**: Technical expertise in product area
+- **Independence**: Impartial assessment capability
+- **Resources**: Adequate testing facilities
+
+#### Working with Notified Bodies
+- **Early Engagement**: Discuss approach and requirements
+- **Documentation Submission**: Provide complete technical files
+- **Technical Meetings**: Clarify requirements and findings
+- **Ongoing Cooperation**: Maintain certification validity
+
+### Documentation Requirements
+
+#### Technical Documentation Contents
+1. **General Description**: Product functionality and purpose
+2. **Conceptual Design**: Architecture and components
+3. **Risk Assessment**: Security analysis and findings
+4. **Technical Specifications**: Detailed requirements
+5. **Standards Applied**: Harmonized standards compliance
+6. **Test Reports**: Conformity testing results
+7. **Instructions**: Installation and user guidance
+
+#### Quality Requirements
+- **Completeness**: All required elements included
+- **Accuracy**: Technically correct information
+- **Clarity**: Clear and unambiguous content
+- **Traceability**: Version control and change management
+- **Maintenance**: Regular updates and reviews
+
+### EU Declaration of Conformity
+
+#### Required Elements
+- Product identification
+- Manufacturer details
+- Applicable legislation
+- Harmonized standards applied
+- Notified body (if applicable)
+- Authorized representative signature
+- Date and place of issue
+
+#### Legal Significance
+- **Manufacturer Declaration**: Legal responsibility acceptance
+- **Market Access**: Required for product placement
+- **Compliance Evidence**: Demonstrates CRA conformity
+- **Liability**: Manufacturer assumes product responsibility
+
+### Post-Market Obligations
+
+#### Ongoing Compliance
+- **Technical Documentation**: Maintain for 10 years
+- **Incident Reporting**: Report cybersecurity incidents
+- **Security Updates**: Provide necessary patches
+- **Market Surveillance**: Cooperate with authorities
+
+#### Certificate Maintenance (Class II)
+- **Validity Period**: Typically 3-5 years
+- **Renewal Process**: Periodic reassessment
+- **Change Notifications**: Inform of product modifications
+- **Surveillance Audits**: Ongoing compliance verification
+
+---
+
+*For legal requirements details, see [Legal Requirements](Legal-Requirements). For technical implementation, visit [Technical Implementation](Technical-Implementation).*
+"""
+
+    def get_market_surveillance_content(self):
+        """Generate Market Surveillance page content"""
+        return """# Market Surveillance
+
+## EU Market Surveillance Framework
+
+### Overview
+Market surveillance ensures ongoing compliance with CRA requirements through systematic monitoring and enforcement.
+
+### National Market Surveillance Authorities
+
+#### Designation and Powers
+- **Member State Designation**: Each EU country designates surveillance authorities
+- **Enforcement Powers**: Authority to test, inspect, and restrict products
+- **Cross-Border Cooperation**: Coordination through EU mechanisms
+- **Resource Allocation**: Adequate technical and human resources
+
+#### Key Responsibilities
+- **Compliance Monitoring**: Regular market surveillance activities
+- **Non-Compliance Investigation**: Follow up on suspected violations
+- **Enforcement Actions**: Product restrictions, recalls, penalties
+- **Industry Guidance**: Provide compliance assistance
+
+### Surveillance Activities
+
+#### Product Testing
+- **Sample Selection**: Risk-based sampling strategies
+- **Testing Procedures**: Laboratory conformity testing
+- **Documentation Review**: Technical file evaluation
+- **Field Inspections**: On-site compliance verification
+
+#### Market Monitoring
+- **Product Scanning**: Systematic market coverage
+- **Complaint Investigation**: Consumer and stakeholder reports
+- **Intelligence Gathering**: Threat and vulnerability information
+- **Trend Analysis**: Emerging compliance issues
+
+### Enforcement Measures
+
+#### Administrative Actions
+- **Information Requests**: Require manufacturer documentation
+- **Product Testing**: Mandatory compliance testing
+- **Corrective Measures**: Order compliance actions
+- **Market Restrictions**: Prohibit or restrict product sales
+
+#### Financial Penalties
+- **Administrative Fines**: Up to €15,000,000 or 2.5% turnover
+- **Proportionality**: Penalties match violation severity
+- **Deterrent Effect**: Sufficient to prevent recurrence
+- **Economic Benefit**: Remove financial advantage of non-compliance
+
+#### Product Measures
+- **Product Withdrawal**: Remove from market
+- **Product Recall**: Retrieve from end users
+- **Import Restrictions**: Block non-compliant imports
+- **Public Warnings**: Alert consumers and stakeholders
+
+### Manufacturer Obligations
+
+#### Cooperation Requirements
+- **Information Provision**: Respond to authority requests
+- **Access Facilitation**: Allow inspections and testing
+- **Documentation Availability**: Maintain accessible records
+- **Corrective Action**: Implement required measures
+
+#### Incident Reporting
+- **Immediate Notification**: Report significant incidents within 24 hours
+- **Detailed Reports**: Provide comprehensive incident analysis
+- **Remediation Plans**: Outline corrective and preventive actions
+- **Follow-up Updates**: Regular progress reporting
+
+### EU Coordination Mechanisms
+
+#### ADCO-CRA (Administrative Cooperation Group)
+- **Membership**: National surveillance authorities
+- **Coordination**: Harmonized enforcement approach
+- **Information Sharing**: Best practices and findings
+- **Joint Actions**: Coordinated market surveillance campaigns
+
+#### RAPEX/Safety Gate
+- **Rapid Alert System**: Fast information exchange
+- **Risk Assessment**: Shared risk evaluation
+- **Coordinated Response**: Joint enforcement actions
+- **Public Information**: Consumer safety alerts
+
+### Industry Compliance Support
+
+#### Guidance Documents
+- **Interpretation Guidance**: Regulatory requirement clarification
+- **Technical Guidance**: Implementation best practices
+- **Sector-Specific Guidance**: Industry-tailored advice
+- **FAQ Resources**: Common question responses
+
+#### Compliance Tools
+- **Self-Assessment Checklists**: Manufacturer evaluation tools
+- **Testing Procedures**: Standardized testing approaches
+- **Documentation Templates**: Required document formats
+- **Training Materials**: Compliance education resources
+
+### Emerging Challenges
+
+#### Digital Product Complexity
+- **Software Updates**: Ongoing compliance monitoring
+- **Cloud Services**: Distributed responsibility models
+- **AI/ML Systems**: Algorithmic decision surveillance
+- **5G/6G Security**: Next-generation connectivity security
+
+#### Global Supply Chains
+- **Import Controls**: Border surveillance measures
+- **Third-Country Coordination**: International cooperation
+- **Supply Chain Visibility**: Component traceability
+- **Remote Assessment**: Digital surveillance tools
+
+---
+
+*For legal requirements, see [Legal Requirements](Legal-Requirements). For compliance procedures, visit [Conformity Assessment](Conformity-Assessment).*
+"""
+
+    def get_hardware_security_content(self):
+        """Generate Hardware Security page content"""
+        return """# Hardware Security
+
+## CRA Hardware Security Requirements
+
+### Overview
+Hardware security forms the foundation of CRA compliance for physical products with digital elements.
+
+### Essential Hardware Security Controls
+
+#### Secure Boot and Trusted Execution
+- **Hardware Root of Trust**: Immutable security foundation
+- **Secure Boot Process**: Cryptographic boot verification
+- **Trusted Platform Module (TPM)**: Hardware security functions
+- **Hardware Security Module (HSM)**: Cryptographic processing
+
+#### Cryptographic Implementation
+- **Hardware Random Number Generation**: Entropy sources
+- **Cryptographic Accelerators**: Secure crypto operations
+- **Key Storage**: Hardware-protected key management
+- **Side-Channel Protection**: Resistance to physical attacks
+
+#### Physical Security Features
+- **Tamper Detection**: Physical intrusion detection
+- **Tamper Response**: Automatic security responses
+- **Debug Port Protection**: Secure development interfaces
+- **Fault Injection Resistance**: Error-based attack protection
+
+### Hardware Security Assessment
+
+#### Penetration Testing Methodology
+1. **Reconnaissance**: Device architecture analysis
+2. **Physical Inspection**: Component identification
+3. **Interface Analysis**: Debug and communication ports
+4. **Firmware Extraction**: Memory dump techniques
+5. **Side-Channel Analysis**: Power and electromagnetic analysis
+6. **Fault Injection**: Glitching and voltage manipulation
+
+#### Testing Tools and Equipment
+- **Logic Analyzers**: Protocol analysis
+- **Oscilloscopes**: Signal analysis
+- **Chip-off Tools**: Memory extraction
+- **JTAG/SWD Debuggers**: Interface access
+- **Power Analysis Equipment**: Side-channel testing
+- **Fault Injection Tools**: Glitching equipment
+
+### Embedded System Security
+
+#### Microcontroller Security
+- **Secure Microcontrollers**: Built-in security features
+- **Memory Protection**: Execution prevention
+- **Privilege Separation**: Access control mechanisms
+- **Watchdog Timers**: System integrity monitoring
+
+#### Firmware Security
+- **Secure Code Practices**: Vulnerability prevention
+- **Code Signing**: Firmware authenticity
+- **Update Mechanisms**: Secure patch delivery
+- **Rollback Protection**: Version integrity
+
+#### Communication Security
+- **Secure Protocols**: Encrypted communication
+- **Authentication**: Device identity verification
+- **Network Segmentation**: Isolation controls
+- **Intrusion Detection**: Anomaly monitoring
+
+### IoT Device Security
+
+#### Consumer IoT Requirements
+- **EN 303 645 Compliance**: Consumer IoT standard
+- **Default Security**: Secure initial configuration
+- **Update Mechanisms**: Automatic security updates
+- **Vulnerability Disclosure**: Coordinated disclosure process
+
+#### Industrial IoT Security
+- **IEC 62443 Compliance**: Industrial cybersecurity standard
+- **Operational Technology**: OT security requirements
+- **Safety Systems**: Functional safety integration
+- **Legacy Integration**: Retrofit security measures
+
+### Hardware Security Validation
+
+#### Security Testing Procedures
+1. **Static Analysis**: Hardware design review
+2. **Dynamic Testing**: Runtime security validation
+3. **Penetration Testing**: Adversarial assessment
+4. **Side-Channel Testing**: Physical attack resistance
+5. **Fault Tolerance Testing**: Error handling validation
+
+#### Certification Requirements
+- **Common Criteria**: Security evaluation standard
+- **FIPS 140-2/3**: Cryptographic module validation
+- **Product Certification**: Third-party validation
+- **Ongoing Assessment**: Periodic re-evaluation
+
+### Implementation Guidelines
+
+#### Design Phase Security
+- **Threat Modeling**: Architecture security analysis
+- **Security Requirements**: Functional security specifications
+- **Component Selection**: Secure hardware components
+- **Attack Surface Minimization**: Reduce exposure points
+
+#### Development Phase Security
+- **Secure Coding**: Vulnerability prevention practices
+- **Security Testing**: Continuous security validation
+- **Code Review**: Peer security assessment
+- **Tool Integration**: Automated security analysis
+
+#### Production Phase Security
+- **Secure Manufacturing**: Production security controls
+- **Supply Chain Security**: Component authenticity
+- **Quality Assurance**: Security testing in production
+- **Secure Distribution**: Product delivery protection
+
+### Emerging Technologies
+
+#### Next-Generation Security
+- **Hardware-based AI Security**: ML accelerator protection
+- **Quantum-Resistant Cryptography**: Post-quantum security
+- **Edge Computing Security**: Distributed processing protection
+- **5G/6G Security**: Next-generation connectivity security
+
+#### Advanced Attack Techniques
+- **Machine Learning Attacks**: AI-based exploitation
+- **Supply Chain Attacks**: Component compromise
+- **Advanced Persistent Threats**: Long-term infiltration
+- **Zero-Day Exploits**: Unknown vulnerability exploitation
+
+---
+
+*For hardware security details, see [Hardware Security](Hardware-Security). For risk assessment, visit [Risk Assessment](Risk-Assessment).*
+"""
+
+    def get_industrial_control_systems_content(self):
+        """Generate Industrial Control Systems page content"""
+        return """# Industrial Control Systems
+
+## CRA Requirements for Industrial Control Systems
+
+### Overview
+Industrial Control Systems (ICS) and Operational Technology (OT) face specific cybersecurity challenges under the CRA framework.
+
+### ICS/OT Security Framework
+
+#### IEC 62443 Standard Series
+- **IEC 62443-1-1**: Concepts and models
+- **IEC 62443-2-1**: Program requirements for asset owners
+- **IEC 62443-3-3**: System security requirements and security levels
+- **IEC 62443-4-2**: Component security requirements
+
+#### Security Levels (SL)
+- **SL 1**: Protection against casual or coincidental violation
+- **SL 2**: Protection against intentional violation using simple means
+- **SL 3**: Protection against intentional violation using sophisticated means
+- **SL 4**: Protection against state-of-the-art attacks
+
+### CRA-Specific Requirements
+
+#### Essential Requirements for ICS
+- Secure by design and default configuration
+- Vulnerability management and disclosure
+- Security update mechanisms
+- Incident response capabilities
+- Network segmentation and access control
+
+#### Risk Assessment Considerations
+- Safety system impact assessment
+- Operational continuity requirements
+- Legacy system integration challenges
+- Supply chain security implications
+
+### Implementation Guidance
+
+#### Network Architecture
+- **Network Segmentation**: OT/IT separation
+- **DMZ Implementation**: Controlled access zones
+- **Firewall Configuration**: Protocol-aware filtering
+- **Remote Access Security**: VPN and authentication
+
+#### Asset Management
+- **Inventory Management**: Complete asset visibility
+- **Configuration Management**: Baseline configurations
+- **Change Management**: Controlled modifications
+- **Lifecycle Management**: End-of-life planning
+
+---
+
+*For detailed assessment procedures, see [Conformity Assessment](Conformity-Assessment). For technical standards, visit [Technical Standards](Technical-Standards).*
+"""
+
+    def get_penetration_testing_content(self):
+        """Generate Penetration Testing page content"""
+        return """# Penetration Testing
+
+## CRA-Aligned Penetration Testing
+
+### Overview
+Penetration testing validates the effectiveness of cybersecurity measures implemented for CRA compliance.
+
+### Testing Methodology
+
+#### OWASP IoT Testing Guide
+- **Firmware Analysis**: Reverse engineering and vulnerability assessment
+- **Hardware Security**: Physical security testing
+- **Communication Security**: Protocol analysis and testing
+- **Authentication Testing**: Access control validation
+- **Encryption Analysis**: Cryptographic implementation review
+
+#### Hardware-Specific Testing
+- **JTAG/SWD Analysis**: Debug interface security
+- **Side-Channel Analysis**: Power and electromagnetic analysis
+- **Fault Injection**: Glitching and voltage manipulation
+- **Physical Tampering**: Tamper resistance testing
+
+### CRA Testing Requirements
+
+#### Essential Requirement Validation
+- Secure by design verification
+- Default security configuration testing
+- Vulnerability management process validation
+- Incident response capability testing
+
+#### Documentation Requirements
+- Test methodology documentation
+- Findings and recommendations report
+- Remediation validation testing
+- Compliance evidence documentation
+
+### Testing Tools and Frameworks
+
+#### Open Source Tools
+- **Firmware Analysis**: Binwalk, EMBA, IoT Inspector
+- **Hardware Testing**: ChipWhisperer, JTAGulator
+- **Network Testing**: Nmap, Wireshark, Burp Suite
+- **Vulnerability Scanning**: OpenVAS, Nessus
+
+#### Commercial Solutions
+- **Automated Testing**: IoT Inspector, Finite State
+- **Hardware Security**: Riscure Inspector, NewAE
+- **Compliance Testing**: Kiuwan, Veracode
+
+---
+
+*For hardware security details, see [Hardware Security](Hardware-Security). For risk assessment, visit [Risk Assessment](Risk-Assessment).*
+"""
+
+    def get_compliance_checklists_content(self):
+        """Generate Compliance Checklists page content"""
+        return """# Compliance Checklists
+
+## CRA Compliance Assessment Tools
+
+### Quick Compliance Checklist
+
+#### Product Scope Assessment
+- [ ] Product has digital elements
+- [ ] Product will be placed on EU market
+- [ ] Product not covered by existing cybersecurity legislation
+- [ ] Product not exempt (open source, R&D only, etc.)
+
+#### Essential Requirements Implementation
+- [ ] Secure by design principles implemented
+- [ ] Secure by default configuration established
+- [ ] Vulnerability disclosure policy defined
+- [ ] Security update mechanism operational
+- [ ] Incident response procedures documented
+
+#### Documentation Requirements
+- [ ] Technical documentation prepared
+- [ ] Risk assessment completed
+- [ ] CE marking and Declaration of Conformity ready
+- [ ] User instructions include security guidance
+- [ ] Support and maintenance plans documented
+
+#### Ongoing Obligations
+- [ ] Incident reporting procedures established
+- [ ] Security monitoring capabilities operational
+- [ ] Update delivery mechanisms tested
+- [ ] Market surveillance cooperation procedures defined
+
+### Detailed Assessment Framework
+
+#### Class I Products (Self-Assessment)
+1. **Product Classification Verification**
+2. **Essential Requirements Mapping**
+3. **Technical Documentation Preparation**
+4. **Conformity Testing**
+5. **Declaration of Conformity**
+6. **CE Marking Application**
+
+#### Class II Products (Third-Party Assessment)
+1. **Notified Body Selection**
+2. **Type Examination Application**
+3. **Technical Documentation Submission**
+4. **Conformity Testing and Evaluation**
+5. **Certificate Issuance**
+6. **Production Conformity Monitoring**
+
+### Industry-Specific Checklists
+
+#### Consumer IoT Devices
+- EN 303 645 compliance verification
+- Default password elimination
+- Automatic update mechanisms
+- Privacy protection measures
+
+#### Industrial Equipment
+- IEC 62443 compliance assessment
+- Safety system integration
+- Operational continuity planning
+- Legacy system compatibility
+
+#### Software Products
+- Secure development lifecycle
+- Vulnerability management processes
+- Third-party component security
+- Data protection measures
+
+---
+
+*For detailed requirements, see [Legal Requirements](Legal-Requirements). For assessment procedures, visit [Conformity Assessment](Conformity-Assessment).*
+"""
+
     def initialize_all_pages(self):
         """Initialize all wiki pages"""
         pages = {
@@ -913,10 +1741,20 @@ Rate your preparation:
             'CRA-Overview': self.get_cra_overview_content(),
             'Getting-Started': self.get_getting_started_content(),
             'Compliance-Assessment': self.get_compliance_assessment_content(),
+            'Legal-Requirements': self.get_legal_requirements_content(),
+            'Technical-Standards': self.get_technical_standards_content(),
+            'Risk-Assessment': self.get_risk_assessment_content(),
+            'Conformity-Assessment': self.get_conformity_assessment_content(),
+            'Market-Surveillance': self.get_market_surveillance_content(),
+            'Hardware-Security': self.get_hardware_security_content(),
+            'Industrial-Control-Systems': self.get_industrial_control_systems_content(),
+            'Penetration-Testing': self.get_penetration_testing_content(),
+            'Compliance-Checklists': self.get_compliance_checklists_content(),
         }
         
         success_count = 0
         for page_name, content in pages.items():
+            print(f"Creating wiki page: {page_name}")
             if self.create_wiki_page(page_name, content):
                 success_count += 1
         
