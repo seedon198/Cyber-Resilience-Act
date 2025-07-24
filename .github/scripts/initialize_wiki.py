@@ -56,11 +56,11 @@ class WikiInitializer:
                 # Push changes
                 subprocess.run(['git', 'push'], cwd=temp_dir, check=True)
                 
-                print(f"✅ Successfully created/updated wiki page: {page_name}")
+                print(f"Successfully created/updated wiki page: {page_name}")
                 return True
                 
             except subprocess.CalledProcessError as e:
-                print(f"❌ Error updating wiki page {page_name}: {e}")
+                print(f"Error updating wiki page {page_name}: {e}")
                 if e.stderr:
                     print(f"   Error details: {e.stderr}")
                 return False
@@ -79,7 +79,7 @@ class WikiInitializer:
         with open(f"{wiki_dir}/{page_name}.md", 'w', encoding='utf-8') as f:
             f.write(content)
         
-        print(f"📄 Created bootstrap file for {page_name}")
+        print(f"Created bootstrap file for {page_name}")
         
         # Also try to create the page via GitHub Issues API as a workaround
         self._create_wiki_via_issues(page_name, content)
@@ -119,41 +119,41 @@ This issue contains the content for the `{page_name}` wiki page.
             response = requests.post(api_url, headers=headers, json=issue_data)
             if response.status_code == 201:
                 issue_url = response.json().get('html_url')
-                print(f"📋 Created documentation issue for {page_name}: {issue_url}")
+                print(f"Created documentation issue for {page_name}: {issue_url}")
             else:
-                print(f"⚠️ Could not create issue for {page_name}: {response.status_code}")
+                print(f"Could not create issue for {page_name}: {response.status_code}")
                 
         except Exception as e:
-            print(f"⚠️ Could not create documentation issue for {page_name}: {e}")
+            print(f"Could not create documentation issue for {page_name}: {e}")
 
     def get_home_content(self):
         """Generate Home page content"""
         return f"""# EU Cyber Resilience Act (CRA) Compliance Hub
 
-Welcome to the comprehensive wiki for EU Cyber Resilience Act compliance! This wiki provides practical guidance, tools, and resources for organizations preparing for CRA requirements.
+Welcome to the comprehensive wiki for EU Cyber Resilience Act compliance. This wiki provides practical guidance, tools, and resources for organizations preparing for CRA requirements.
 
-## 🚀 Quick Start Guide
+## Quick Start Guide
 
 ### New to CRA?
-1. **[📋 What is the CRA?](CRA-Overview)** - Understanding the regulation
-2. **[⏰ Timeline & Deadlines](Timeline-and-Milestones)** - Key implementation dates
-3. **[✅ Getting Started](Getting-Started)** - Your first steps toward compliance
+1. **[What is the CRA?](CRA-Overview)** - Understanding the regulation
+2. **[Timeline & Deadlines](Timeline-and-Milestones)** - Key implementation dates
+3. **[Getting Started](Getting-Started)** - Your first steps toward compliance
 
 ### Ready to Implement?
-1. **[📊 Compliance Assessment](Compliance-Assessment)** - Evaluate your current state
-2. **[🔧 Implementation Guide](Implementation-Guide)** - Step-by-step compliance process
-3. **[🛠️ Tools & Resources](Tools-and-Resources)** - Practical implementation tools
+1. **[Compliance Assessment](Compliance-Assessment)** - Evaluate your current state
+2. **[Implementation Guide](Implementation-Guide)** - Step-by-step compliance process
+3. **[Tools & Resources](Tools-and-Resources)** - Practical implementation tools
 
 ### Specialized Areas
-- **[🔒 Hardware Security](Hardware-Security)** - Embedded systems and IoT compliance
-- **[🏭 Industrial Systems](Industrial-Control-Systems)** - OT/ICS security requirements
-- **[🧪 Penetration Testing](Penetration-Testing)** - Security assessment frameworks
+- **[Hardware Security](Hardware-Security)** - Embedded systems and IoT compliance
+- **[Industrial Systems](Industrial-Control-Systems)** - OT/ICS security requirements
+- **[Penetration Testing](Penetration-Testing)** - Security assessment frameworks
 
-## 📰 Latest Updates
+## Latest Updates
 
-🔴 **[Latest News & Developments](Latest-News)** - Auto-updated daily with CRA news
+**[Latest News & Developments](Latest-News)** - Auto-updated daily with CRA news
 
-## 📚 Documentation Library
+## Documentation Library
 
 | Topic | Description | Target Audience |
 |-------|-------------|-----------------|
@@ -164,40 +164,40 @@ Welcome to the comprehensive wiki for EU Cyber Resilience Act compliance! This w
 | [Conformity Assessment](Conformity-Assessment) | Third-party evaluation process | Compliance officers |
 | [Market Surveillance](Market-Surveillance) | Enforcement mechanisms | Product managers |
 
-## 🎯 By Industry & Role
+## By Industry & Role
 
 ### By Industry
-- **[🌐 IoT & Consumer Electronics](IoT-and-Consumer-Electronics)**
-- **[🏭 Industrial Equipment](Industrial-Equipment)**  
-- **[💻 Software & Services](Software-and-Services)**
-- **[🚗 Automotive Systems](Automotive-Systems)**
-- **[🏥 Medical Devices](Medical-Devices)**
+- **[IoT & Consumer Electronics](IoT-and-Consumer-Electronics)**
+- **[Industrial Equipment](Industrial-Equipment)**  
+- **[Software & Services](Software-and-Services)**
+- **[Automotive Systems](Automotive-Systems)**
+- **[Medical Devices](Medical-Devices)**
 
 ### By Role
-- **[👨‍💼 Management Overview](Management-Overview)**
-- **[⚖️ Legal & Compliance](Legal-and-Compliance)**
-- **[🔧 Technical Implementation](Technical-Implementation)**
-- **[🛡️ Security Professionals](Security-Professionals)**
-- **[🧪 Testing & Validation](Testing-and-Validation)**
+- **[Management Overview](Management-Overview)**
+- **[Legal & Compliance](Legal-and-Compliance)**
+- **[Technical Implementation](Technical-Implementation)**
+- **[Security Professionals](Security-Professionals)**
+- **[Testing & Validation](Testing-and-Validation)**
 
-## 🛠️ Practical Tools
+## Practical Tools
 
-- **[📋 Compliance Checklists](Compliance-Checklists)** - Ready-to-use assessment tools
-- **[📊 Gap Analysis Templates](Gap-Analysis-Templates)** - Identify compliance gaps
-- **[📖 Document Templates](Document-Templates)** - Pre-formatted compliance docs
-- **[🧪 Testing Frameworks](Testing-Frameworks)** - Security assessment methodologies
+- **[Compliance Checklists](Compliance-Checklists)** - Ready-to-use assessment tools
+- **[Gap Analysis Templates](Gap-Analysis-Templates)** - Identify compliance gaps
+- **[Document Templates](Document-Templates)** - Pre-formatted compliance docs
+- **[Testing Frameworks](Testing-Frameworks)** - Security assessment methodologies
 
-## 🎓 Training & Education
+## Training & Education
 
-- **[📚 Training Programs](Training-Programs)** - Structured learning paths
-- **[💡 Best Practices](Best-Practices)** - Industry-proven approaches
-- **[📖 Case Studies](Case-Studies)** - Real-world implementation examples
-- **[❓ FAQ](Frequently-Asked-Questions)** - Common questions answered
+- **[Training Programs](Training-Programs)** - Structured learning paths
+- **[Best Practices](Best-Practices)** - Industry-proven approaches
+- **[Case Studies](Case-Studies)** - Real-world implementation examples
+- **[FAQ](Frequently-Asked-Questions)** - Common questions answered
 
-## 🤝 Community & Support
+## Community & Support
 
-- **[💬 Discussions](https://github.com/seedon198/Cyber-Resilience-Act/discussions)** - Community Q&A
-- **[🐛 Issues](https://github.com/seedon198/Cyber-Resilience-Act/issues)** - Report problems or request features
+- **[Discussions](https://github.com/seedon198/Cyber-Resilience-Act/discussions)** - Community Q&A
+- **[Issues](https://github.com/seedon198/Cyber-Resilience-Act/issues)** - Report problems or request features
 - **[🤝 Contributing](Contributing-Guidelines)** - How to contribute to this resource
 
 ## 🔄 About This Wiki
@@ -224,14 +224,14 @@ The **EU Cyber Resilience Act (CRA)** is landmark European legislation designed 
 
 ## Key Objectives
 
-### 🎯 Primary Goals
+### Primary Goals
 - **Harmonize cybersecurity requirements** across the EU single market
 - **Enhance cybersecurity** of digital products and services
 - **Create legal certainty** for manufacturers and users
 - **Improve incident response** and vulnerability management
 - **Strengthen market surveillance** and enforcement
 
-### 🔍 Scope of Application
+### Scope of Application
 
 #### Products Covered
 - **Consumer IoT devices** (smart home, wearables, connected appliances)
@@ -248,7 +248,7 @@ The **EU Cyber Resilience Act (CRA)** is landmark European legislation designed 
 
 ## Regulatory Framework
 
-### 📋 Essential Requirements
+### Essential Requirements
 All covered products must meet:
 
 1. **Secure by Design**: Built-in security from conception
@@ -257,7 +257,7 @@ All covered products must meet:
 4. **Incident Response**: Prompt notification and remediation
 5. **Documentation**: Comprehensive security documentation
 
-### 🏷️ Product Classification
+### Product Classification
 
 #### Class I (Standard Risk)
 - Basic cybersecurity requirements
@@ -269,7 +269,7 @@ All covered products must meet:
 - Third-party assessment required
 - Additional documentation
 
-### ⚖️ Legal Obligations
+### Legal Obligations
 
 #### For Manufacturers
 - Implement essential cybersecurity requirements
@@ -303,13 +303,13 @@ All covered products must meet:
 
 ## Enforcement Mechanisms
 
-### 🚨 Market Surveillance
+### Market Surveillance
 - **National authorities** monitor compliance
 - **Product testing** and documentation review
 - **Non-compliance penalties** up to 2.5% of global turnover
 - **Product withdrawal** from market possible
 
-### 🔍 Conformity Assessment
+### Conformity Assessment
 - **Self-assessment** for Class I products
 - **Third-party assessment** for Class II products
 - **Notified bodies** conduct evaluations
@@ -357,7 +357,7 @@ All covered products must meet:
 
 This guide provides a structured approach to beginning your CRA compliance journey, regardless of your organization size or current security maturity.
 
-## 🎯 Step 1: Determine Applicability
+## Step 1: Determine Applicability
 
 ### Quick Assessment
 Answer these questions to determine if CRA applies to your products:
@@ -392,7 +392,7 @@ Answer these questions to determine if CRA applies to your products:
 
 **📋 [Use our detailed assessment tool](Compliance-Assessment) for definitive classification.**
 
-## 🔍 Step 2: Current State Analysis
+## Step 2: Current State Analysis
 
 ### Security Inventory
 Document your current security posture:
@@ -422,7 +422,7 @@ Document your current security posture:
 - Prioritize gaps by risk and implementation effort
 - Estimate resources needed for remediation
 
-## 📋 Step 3: Compliance Planning
+## Step 3: Compliance Planning
 
 ### Implementation Roadmap
 
@@ -471,7 +471,7 @@ Document your current security posture:
 - **Compliance costs**: Notified body fees, testing
 - **Ongoing costs**: Monitoring, updates, maintenance
 
-## 🛠️ Step 4: Quick Wins & Early Actions
+## Step 4: Quick Wins & Early Actions
 
 ### Immediate Improvements (30 days)
 1. **Security Defaults**
@@ -505,7 +505,7 @@ Document your current security posture:
    - Assess supplier security practices
    - Implement component vulnerability tracking
 
-## 📚 Essential Resources
+## Essential Resources
 
 ### Documentation Templates
 - **[Compliance Checklist](Compliance-Checklists)** - Track your progress
@@ -522,7 +522,7 @@ Document your current security posture:
 - **[Industrial Systems](Industrial-Control-Systems)** - OT/ICS compliance
 - **[Software Products](Software-and-Services)** - Application security requirements
 
-## 🎓 Training & Education
+## Training & Education
 
 ### Team Training Priorities
 1. **Management**: CRA overview and business impact
@@ -555,7 +555,7 @@ Document your current security posture:
 - **[Latest News](Latest-News)** - Stay informed of regulatory updates
 - **[Best Practices](Best-Practices)** - Learn from implementation experiences
 
-## ✅ Success Metrics
+## Success Metrics
 
 ### Track Your Progress
 - **Compliance readiness** percentage
@@ -588,7 +588,7 @@ Document your current security posture:
 
 This comprehensive assessment helps you determine your current compliance status and identify specific actions needed for CRA conformity.
 
-## 🎯 Assessment Overview
+## Assessment Overview
 
 ### Purpose
 - Evaluate current security posture against CRA requirements
@@ -602,7 +602,7 @@ This comprehensive assessment helps you determine your current compliance status
 - Organizational readiness and governance
 - Product-specific requirements and classifications
 
-## 📋 Quick Assessment Tool
+## Quick Assessment Tool
 
 ### Part A: Product Applicability
 
@@ -728,7 +728,7 @@ Rate your preparation:
 
 **Score: ___/10**
 
-## 🎯 Detailed Assessment Questionnaire
+## Detailed Assessment Questionnaire
 
 ### Section 1: Essential Requirements Deep Dive
 
@@ -814,7 +814,7 @@ Rate your preparation:
 4. Do you have threat intelligence capabilities?
 5. Can you assess the impact of security incidents?
 
-## 📊 Scoring and Interpretation
+## Scoring and Interpretation
 
 ### Overall Readiness Score
 
@@ -868,7 +868,7 @@ Rate your preparation:
 - Documentation updates required
 - Process optimization opportunities
 
-## 🎯 Next Steps Based on Results
+## Next Steps Based on Results
 
 ### For Beginning Level Organizations
 1. **[Start with Getting Started Guide](Getting-Started)**
@@ -888,7 +888,7 @@ Rate your preparation:
 3. Engage notified body (if Class II)
 4. Prepare for product launch
 
-## 📋 Assessment Tools & Templates
+## Assessment Tools & Templates
 
 ### Downloadable Resources
 - **[Detailed Assessment Spreadsheet](Document-Templates)** - Comprehensive scoring tool
@@ -920,7 +920,7 @@ Rate your preparation:
             if self.create_wiki_page(page_name, content):
                 success_count += 1
         
-        print(f"\n🎉 Successfully initialized {success_count}/{len(pages)} wiki pages!")
+        print(f"\nSuccessfully initialized {success_count}/{len(pages)} wiki pages!")
         return success_count == len(pages)
 
 def main():
@@ -930,14 +930,14 @@ def main():
         success = initializer.initialize_all_pages()
         
         if success:
-            print("\n✅ Wiki initialization completed successfully!")
-            print("🌐 Visit: https://github.com/seedon198/Cyber-Resilience-Act/wiki")
+            print("\nWiki initialization completed successfully!")
+            print("Visit: https://github.com/seedon198/Cyber-Resilience-Act/wiki")
         else:
-            print("\n❌ Some wiki pages failed to initialize")
+            print("\nSome wiki pages failed to initialize")
             exit(1)
             
     except Exception as e:
-        print(f"❌ Error initializing wiki: {e}")
+        print(f"Error initializing wiki: {e}")
         exit(1)
 
 if __name__ == "__main__":
