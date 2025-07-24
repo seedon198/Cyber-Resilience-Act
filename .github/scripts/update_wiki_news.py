@@ -141,60 +141,51 @@ Latest developments automatically inform updates to:
         return wiki_content
     
     def update_wiki_page(self, content):
-        """Update GitHub Wiki page"""
+        """Update GitHub Wiki page using git operations"""
         if not self.github_token:
             print("No GitHub token provided, skipping wiki update")
             return False
             
-        # GitHub API endpoint for wiki pages
-        api_url = f"https://api.github.com/repos/{self.repo_owner}/{self.repo_name}/contents/wiki/{self.wiki_page}.md"
+        import subprocess
+        import tempfile
         
-        headers = {
-            'Authorization': f'token {self.github_token}',
-            'Accept': 'application/vnd.github.v3+json',
-            'Content-Type': 'application/json'
-        }
-        
-        # Try to get existing page to get SHA
-        try:
-            response = requests.get(api_url, headers=headers)
-            if response.status_code == 200:
-                existing = response.json()
-                sha = existing['sha']
-            else:
-                sha = None
-        except:
-            sha = None
-        
-        # Prepare update data
-        import base64
-        content_encoded = base64.b64encode(content.encode('utf-8')).decode('utf-8')
-        
-        data = {
-            'message': f'Auto-update: Latest CRA news {datetime.now().strftime("%Y-%m-%d")}',
-            'content': content_encoded,
-            'branch': 'main'
-        }
-        
-        if sha:
-            data['sha'] = sha
-        
-        # Update or create the page
-        try:
-            if sha:
-                response = requests.put(api_url, headers=headers, json=data)
-            else:
-                response = requests.post(api_url, headers=headers, json=data)
+        with tempfile.TemporaryDirectory() as temp_dir:
+            wiki_repo = f"https://x-access-token:{self.github_token}@github.com/{self.repo_owner}/{self.repo_name}.wiki.git"
+            
+            try:
+                # Clone wiki repo
+                subprocess.run(['git', 'clone', wiki_repo, temp_dir], 
+                             check=True, capture_output=True, text=True)
                 
-            if response.status_code in [200, 201]:
+                # Write content to file
+                page_file = os.path.join(temp_dir, f"{self.wiki_page}.md")
+                with open(page_file, 'w', encoding='utf-8') as f:
+                    f.write(content)
+                
+                # Configure git
+                subprocess.run(['git', 'config', 'user.email', 'action@github.com'], 
+                             cwd=temp_dir, check=True)
+                subprocess.run(['git', 'config', 'user.name', 'GitHub Action'], 
+                             cwd=temp_dir, check=True)
+                
+                # Add and commit
+                subprocess.run(['git', 'add', f"{self.wiki_page}.md"], 
+                             cwd=temp_dir, check=True)
+                commit_message = f"Auto-update: Latest CRA news {datetime.now().strftime('%Y-%m-%d')}"
+                subprocess.run(['git', 'commit', '-m', commit_message], 
+                             cwd=temp_dir, check=True)
+                
+                # Push changes
+                subprocess.run(['git', 'push'], cwd=temp_dir, check=True)
+                
                 print(f"Successfully updated wiki page: {self.wiki_page}")
                 return True
-            else:
-                print(f"Failed to update wiki page: {response.status_code} - {response.text}")
+                
+            except subprocess.CalledProcessError as e:
+                print(f"Error updating wiki page {self.wiki_page}: {e}")
+                if e.stderr:
+                    print(f"   Error details: {e.stderr}")
                 return False
-        except Exception as e:
-            print(f"Error updating wiki page: {e}")
-            return False
     
     def run(self):
         """Main execution function"""
