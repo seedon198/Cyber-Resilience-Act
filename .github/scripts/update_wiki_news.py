@@ -127,6 +127,63 @@ class WikiNewsUpdater:
             print(f"Error fetching from GNews: {e}")
             return []
 
+    def deduplicate_articles(self, articles):
+        """Remove duplicate articles based on title similarity and URL"""
+        from difflib import SequenceMatcher
+        from urllib.parse import urlparse
+        
+        def similarity(a, b):
+            return SequenceMatcher(None, a.lower(), b.lower()).ratio()
+        
+        def normalize_url(url):
+            """Normalize URL for comparison"""
+            if not url or url == '#':
+                return None
+            parsed = urlparse(url)
+            return f"{parsed.netloc}{parsed.path}".lower()
+        
+        deduplicated = []
+        seen_titles = []
+        seen_urls = []
+        
+        # Sort by date to keep the newest version of duplicates
+        articles.sort(key=lambda x: x.get('date', ''), reverse=True)
+        
+        for article in articles:
+            title = article.get('title', '').strip()
+            url = article.get('link', '')
+            normalized_url = normalize_url(url)
+            
+            if not title:
+                continue
+                
+            # Check if this title is too similar to any we've already seen
+            is_duplicate = False
+            
+            # Check title similarity
+            for seen_title in seen_titles:
+                if similarity(title, seen_title) > 0.85:  # 85% similarity threshold
+                    print(f"Skipping duplicate by title: '{title[:50]}...'")
+                    is_duplicate = True
+                    break
+            
+            # Check URL similarity (if URLs exist)
+            if not is_duplicate and normalized_url:
+                for seen_url in seen_urls:
+                    if normalized_url == seen_url:
+                        print(f"Skipping duplicate by URL: '{title[:50]}...'")
+                        is_duplicate = True
+                        break
+            
+            if not is_duplicate:
+                deduplicated.append(article)
+                seen_titles.append(title)
+                if normalized_url:
+                    seen_urls.append(normalized_url)
+        
+        print(f"Removed {len(articles) - len(deduplicated)} duplicate articles")
+        return deduplicated
+
     def generate_wiki_content(self, articles):
         """Generate wiki content"""
         if not articles:
@@ -273,6 +330,10 @@ Latest developments automatically inform updates to:
             time.sleep(1)  # Be respectful to servers
         
         print(f"Found {len(all_articles)} relevant articles")
+        
+        # Remove duplicates
+        all_articles = self.deduplicate_articles(all_articles)
+        print(f"After deduplication: {len(all_articles)} unique articles")
         
         # Generate and update wiki content
         wiki_content = self.generate_wiki_content(all_articles)
