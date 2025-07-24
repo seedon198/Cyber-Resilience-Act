@@ -1,0 +1,32 @@
+name: Initialize GitHub Wiki
+
+on:
+  workflow_dispatch:
+    # Manual trigger only for initial setup
+
+jobs:
+  initialize-wiki:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        pip install requests
+
+    - name: Initialize Wiki
+      run: |
+        python .github/scripts/initialize_wiki.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
