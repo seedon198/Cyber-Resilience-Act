@@ -72,3 +72,7 @@ test-results/
 # Auto-generated Content (by GitHub Actions)
 docs/news-updates.md
 docs/latest-cra-news.json
+
+# Sensitive Configuration Files
+.github/copilot-instructions.md
+**/copilot-instructions.md
