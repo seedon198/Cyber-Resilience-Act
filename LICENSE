@@ -19,6 +19,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+<<<<<<< HEAD
 
 ---
 
@@ -35,3 +36,5 @@ References to professional services, tools, or methodologies do not constitute e
 
 ### Accuracy Disclaimer
 While every effort is made to ensure the accuracy and completeness of the information provided, the maintainers make no warranties or representations regarding the accuracy, completeness, or suitability of the content for any particular purpose.
+=======
+>>>>>>> origin/main
