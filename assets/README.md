@@ -16,18 +16,21 @@ assets/
 ## Asset Guidelines
 
 ### Technical Diagrams
+
 - Use standard cybersecurity diagramming conventions
 - Include clear labels and legends
 - Maintain consistent styling and colors
 - Provide both high-resolution and web-optimized versions
 
 ### Compliance Charts
+
 - Follow accessibility guidelines for color and contrast
 - Include alternative text descriptions
 - Maintain consistency with regulatory documentation
 - Update regularly to reflect current requirements
 
 ### Documentation Templates
+
 - Professional formatting and branding
 - Comprehensive guidance and instructions
 - Regulatory requirement alignment
@@ -44,7 +47,8 @@ When contributing visual assets to this repository:
 
 ## Usage Rights
 
-All assets in this directory are provided under the repository's MIT license unless otherwise specified. Users should verify licensing requirements for commercial or professional use.
+All assets in this directory are provided under the repository's MIT license unless otherwise
+specified. Users should verify licensing requirements for commercial or professional use.
 
 ---
 
