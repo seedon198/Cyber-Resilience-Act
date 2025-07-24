@@ -27,7 +27,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install requests beautifulsoup4 feedparser python-dateutil
+        pip install -r .github/scripts/requirements.txt
 
     - name: Fetch CRA news and updates
       run: |

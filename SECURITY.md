@@ -2,16 +2,19 @@
 
 ## Reporting Security Vulnerabilities
 
-We take security seriously in this EU Cyber Resilience Act compliance repository. If you discover security vulnerabilities in our documentation, tools, or processes, please report them responsibly.
+We take security seriously in this EU Cyber Resilience Act compliance repository. If you discover  
+security vulnerabilities in our documentation, tools, or processes, please report them responsibly.
 
 ### How to Report
 
 **For Security Issues:**
-- **Email:** security@hexguard.net
+
+- **Email:** [security@hexguard.net](mailto:security@hexguard.net)
 - **PGP Key:** Available on request
 - **Response Time:** Within 48 hours for acknowledgment
 
 **For General Issues:**
+
 - Use GitHub Issues for non-security related bugs and enhancements
 - Follow our [Contributing Guidelines](CONTRIBUTING.md)
 
