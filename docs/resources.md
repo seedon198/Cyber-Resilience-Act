@@ -14,9 +14,9 @@
 
 | Source | Document | Focus Area | Date |
 |--------|----------|------------|------|
-| ENISA | [Cybersecurity Certification Schemes](https://www.enisa.europa.eu/publications/cybersecurity-certification-ecosystem-analysis) | Certification | 2024-01-15 |
+| ENISA | [Cybersecurity Certification Schemes](https://www.enisa.europa.eu/publications/guidelines-for-cybersecurity-certification) | Certification | 2024-01-15 |
 | ENISA | [IoT Security Guidelines](https://www.enisa.europa.eu/publications/guidelines-for-securing-the-internet-of-things) | IoT Devices | 2023-11-08 |
-| European Commission | [Digital Product Passport Guidelines](https://ec.europa.eu/info/strategy/priorities-2019-2024/europe-fit-digital-age/digital-services-act_en) | Product Documentation | 2024-02-20 |
+| European Commission | [Digital Product Passport Guidelines](https://digital-strategy.ec.europa.eu/en/policies/digital-services-act-package) | Product Documentation | 2024-02-20 |
 
 ## Industry Standards and Frameworks
 

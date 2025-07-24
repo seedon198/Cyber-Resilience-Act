@@ -8,6 +8,12 @@
     },
     {
       "pattern": "^https://eur-lex\\.europa\\.eu/"
+    },
+    {
+      "pattern": "^https://ec\\.europa\\.eu/newsroom/"
+    },
+    {
+      "pattern": "^mailto:"
     }
   ],
   "timeout": "20s",
@@ -23,5 +29,6 @@
     502,
     503,
     504
-  ]
+  ],
+  "aliveStatusCodes": [200, 206]
 }

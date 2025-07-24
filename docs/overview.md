@@ -158,7 +158,7 @@ The EU Cyber Resilience Act (CRA) is landmark cybersecurity legislation that est
 
 ### Industry Guidance
 - [DIGITALEUROPE Industry Position](https://www.digitaleurope.org/)
-- [ETSI Cybersecurity Standards](https://www.etsi.org/technologies/cybersecurity)
+- [ETSI Cybersecurity Standards](https://www.etsi.org/technologies/cyber-security)
 - [CEN-CENELEC Standards Development](https://www.cencenelec.eu/)
 
 ---
