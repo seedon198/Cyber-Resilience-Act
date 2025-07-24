@@ -128,8 +128,7 @@ This issue contains the content for the `{page_name}` wiki page.
 
     def get_home_content(self):
         """Generate Home page content"""
-        return f"""# EU Cyber Resilience Act (CRA) Compliance Hub
-
+        return f"""
 Welcome to the comprehensive wiki for EU Cyber Resilience Act compliance. This wiki provides practical guidance, tools, and resources for organizations preparing for CRA requirements.
 
 ## Quick Start Guide
