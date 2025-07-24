@@ -45,7 +45,7 @@ IoT devices in Europe. This repository serves as the **definitive resource hub**
 | [Curated Resources](docs/resources.md) | Official docs, whitepapers, industry guidance | ✅ Ready |
 | [Tools & Frameworks](docs/tools.md) | Open-source compliance tools and methodologies | ✅ Ready |
 | [Timeline & Milestones](docs/timeline.md) | CRA enforcement dates and deadlines | ✅ Ready |
-| [Latest News](docs/news-updates.md) | Auto-updated CRA developments | 🔄 Live |
+| [Latest News](https://github.com/seedon198/Cyber-Resilience-Act/wiki/Latest-News) | Auto-updated CRA developments | 🔄 Live |
 
 ## Compliance Assessment Resources
 

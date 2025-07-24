@@ -14,7 +14,7 @@
 
 | Source | Document | Focus Area | Date |
 |--------|----------|------------|------|
-| ENISA | [Cybersecurity Certification Schemes](https://www.enisa.europa.eu/topics/cybersecurity-certification) | Certification | 2024-01-15 |
+| ENISA | [Cybersecurity Certification Schemes](https://www.enisa.europa.eu/topics/standards/cybersecurity-certification) | Certification | 2024-01-15 |
 | ENISA | [IoT Security Guidelines](https://www.enisa.europa.eu/publications/guidelines-for-securing-the-internet-of-things) | IoT Devices | 2023-11-08 |
 | European Commission | [Digital Product Passport Guidelines](https://digital-strategy.ec.europa.eu/en/policies/digital-services-act-package) | Product Documentation | 2024-02-20 |
 
@@ -136,4 +136,4 @@ See our [Contributing Guidelines](../CONTRIBUTING.md) for detailed instructions.
 
 ---
 
-*This resource list is continuously updated. For the latest additions, check our [automated news updates](news-updates.md) and follow our repository updates.*
+*This resource list is continuously updated. For the latest additions, check our [automated news updates](https://github.com/seedon198/Cyber-Resilience-Act/wiki/Latest-News) and follow our repository updates.*

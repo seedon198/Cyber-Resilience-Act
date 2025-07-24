@@ -29,9 +29,11 @@ jobs:
       run: |
         pip install -r .github/scripts/requirements.txt
 
-    - name: Fetch CRA news and updates
+    - name: Update Wiki with latest news
       run: |
-        python .github/scripts/fetch_cra_news.py
+        python .github/scripts/update_wiki_news.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Download official documents
       run: |
@@ -40,20 +42,11 @@ jobs:
     - name: Check for changes
       id: check_changes
       run: |
-        git diff --exit-code docs/news-updates.md || echo "changes=true" >> $GITHUB_OUTPUT
+        echo "changes=true" >> $GITHUB_OUTPUT
 
-    - name: Commit and push changes
-      if: steps.check_changes.outputs.changes == 'true'
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add docs/news-updates.md docs/official-documents/
-        git commit -m "Auto-update: Latest CRA news and official documents $(date +'%Y-%m-%d')"
-        git push
-
-    - name: Create summary
+    - name: Update summary
       run: |
         echo "## CRA News Update Summary" >> $GITHUB_STEP_SUMMARY
-        echo "- Fetched latest news from multiple sources" >> $GITHUB_STEP_SUMMARY
-        echo "- Updated official document links" >> $GITHUB_STEP_SUMMARY
+        echo "- Updated GitHub Wiki with latest CRA news" >> $GITHUB_STEP_SUMMARY
+        echo "- Downloaded official documents" >> $GITHUB_STEP_SUMMARY
         echo "- Processed on $(date)" >> $GITHUB_STEP_SUMMARY

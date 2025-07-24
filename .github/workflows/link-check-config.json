@@ -20,6 +20,9 @@
     },
     {
       "pattern": "docs/news-updates\\.md$"
+    },
+    {
+      "pattern": "^https://github\\.com/.*/wiki/"
     }
   ],
   "timeout": "20s",
