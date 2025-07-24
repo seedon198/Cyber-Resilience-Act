@@ -49,6 +49,16 @@ class WikiInitializer:
                 # Add and commit
                 subprocess.run(['git', 'add', f"{page_name}.md"], 
                              cwd=temp_dir, check=True)
+                
+                # Check if there are changes to commit
+                result = subprocess.run(['git', 'diff', '--cached', '--exit-code'], 
+                                      cwd=temp_dir, capture_output=True)
+                
+                if result.returncode == 0:
+                    # No changes to commit
+                    print(f"Wiki page {page_name} already exists with same content")
+                    return True
+                
                 commit_message = message or f"Add {page_name} wiki page"
                 subprocess.run(['git', 'commit', '-m', commit_message], 
                              cwd=temp_dir, check=True)
@@ -1756,6 +1766,10 @@ Penetration testing validates the effectiveness of cybersecurity measures implem
             print(f"Creating wiki page: {page_name}")
             if self.create_wiki_page(page_name, content):
                 success_count += 1
+            
+            # Small delay to avoid potential race conditions
+            import time
+            time.sleep(1)
         
         print(f"\nSuccessfully initialized {success_count}/{len(pages)} wiki pages!")
         return success_count == len(pages)
