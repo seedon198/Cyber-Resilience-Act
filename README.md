@@ -1,8 +1,8 @@
 # EU Cyber Resilience Act (CRA) - Compliance Hub
 
 [![EU CRA](https://img.shields.io/badge/EU-Cyber%20Resilience%20Act-003399?style=for-the-badge&logo=european-union&logoColor=white)](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52022PC0454)
-[![License](https://img.shields.io/badge/license-MIT-white?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
-[![Auto-Updated](https://img.shields.io/badge/content-auto--updated-white?style=for-the-badge&logo=github-actions&logoColor=white)](#latest-cra-developments)
+[![License](https://img.shields.io/badge/license-MIT-003399?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
+[![Auto-Updated](https://img.shields.io/badge/content-auto--updated-003399?style=for-the-badge&logo=github-actions&logoColor=white)](#latest-cra-developments)
 
 ## Latest CRA Developments
 
