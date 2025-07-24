@@ -68,7 +68,8 @@ class WikiNewsUpdater:
                     'title': 'CRA Implementation Phase Continues',
                     'date': datetime.now().strftime('%Y-%m-%d'),
                     'summary': 'The European Union continues preparations for the full enforcement of the Cyber Resilience Act.',
-                    'source': 'EU Official'
+                    'source': 'EU Official',
+                    'link': 'https://ec.europa.eu/info/law/better-regulation/have-your-say/initiatives/13410-Cyber-resilience-act_en'
                 }
             ]
             
@@ -79,11 +80,11 @@ class WikiNewsUpdater:
 
 *Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M UTC')} - Automatically generated*
 
-## 📰 Recent Developments
+## Recent Developments
 
 The following section is automatically updated with the latest news and developments related to the EU Cyber Resilience Act.
 
-### 🔥 Key Updates This Month
+### Key Updates This Month
 
 """
         
@@ -96,8 +97,10 @@ The following section is automatically updated with the latest news and developm
                 current_month = month_year
                 wiki_content += f"\n#### {month_year}\n\n"
             
-            wiki_content += f"**[{article['title']}]({article['link']})**  \n"
-            wiki_content += f"*📅 {article['date']} | 📰 Source: {article.get('source', 'Unknown')}*\n\n"
+            # Use article.get('link') to handle missing links gracefully
+            article_link = article.get('link', '#')
+            wiki_content += f"**[{article['title']}]({article_link})**  \n"
+            wiki_content += f"*{article['date']} | Source: {article.get('source', 'Unknown')}*\n\n"
             
             if article.get('summary'):
                 wiki_content += f"{article['summary']}\n\n"
@@ -105,30 +108,30 @@ The following section is automatically updated with the latest news and developm
             wiki_content += "---\n\n"
         
         wiki_content += f"""
-## 📡 Monitoring Sources
+## Monitoring Sources
 
 This page automatically monitors the following sources for CRA-related updates:
 
 | Source | Type | Update Frequency |
 |--------|------|------------------|
-| 🏛️ EU Official Portal | Web Scraping | Daily |
-| 🛡️ ENISA News | Web Scraping | Daily |
-| 📊 Security Week | RSS Feed | Daily |
-| 📈 Industry Reports | Various Sources | Weekly |
+| EU Official Portal | Web Scraping | Daily |
+| ENISA News | Web Scraping | Daily |
+| Security Week | RSS Feed | Daily |
+| Industry Reports | Various Sources | Weekly |
 
-## 🔗 Integration with Documentation
+## Integration with Documentation
 
 Latest developments automatically inform updates to:
 - [Timeline & Milestones](https://github.com/seedon198/Cyber-Resilience-Act/blob/main/docs/timeline.md) - Updated enforcement dates
 - [Compliance Guide](https://github.com/seedon198/Cyber-Resilience-Act/blob/main/docs/compliance.md) - New regulatory guidance
 - [Tools & Frameworks](https://github.com/seedon198/Cyber-Resilience-Act/blob/main/docs/tools.md) - New compliance tools and resources
 
-## ℹ️ About This Page
+## About This Page
 
-- 🤖 **Automated Updates**: This page is automatically updated daily via GitHub Actions
-- 📊 **Data Sources**: Multiple authoritative sources for comprehensive coverage
-- 🔄 **Refresh Rate**: Daily monitoring with immediate updates for critical developments
-- 📝 **Manual Contributions**: For corrections or additions, please see our [Contributing Guidelines](https://github.com/seedon198/Cyber-Resilience-Act/blob/main/CONTRIBUTING.md)
+- **Automated Updates**: This page is automatically updated daily via GitHub Actions
+- **Data Sources**: Multiple authoritative sources for comprehensive coverage
+- **Refresh Rate**: Daily monitoring with immediate updates for critical developments
+- **Manual Contributions**: For corrections or additions, please see our [Contributing Guidelines](https://github.com/seedon198/Cyber-Resilience-Act/blob/main/CONTRIBUTING.md)
 
 ---
 
