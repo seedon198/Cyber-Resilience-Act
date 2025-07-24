@@ -19,19 +19,21 @@ class WikiInitializer:
             raise ValueError("GITHUB_TOKEN environment variable required")
     
     def create_wiki_page(self, page_name, content, message=None):
-        """Create or update a wiki page"""
-        # Clone wiki repo temporarily to update
+        """Create or update a wiki page using git operations"""
+        if not self.github_token:
+            print("❌ No GitHub token provided")
+            return False
+            
         import subprocess
         import tempfile
-        import shutil
         
         with tempfile.TemporaryDirectory() as temp_dir:
             wiki_repo = f"https://{self.github_token}@github.com/{self.repo_owner}/{self.repo_name}.wiki.git"
             
             try:
                 # Clone wiki repo
-                subprocess.run(['git', 'clone', wiki_repo, temp_dir], 
-                             check=True, capture_output=True)
+                result = subprocess.run(['git', 'clone', wiki_repo, temp_dir], 
+                                     check=True, capture_output=True, text=True)
                 
                 # Write content to file
                 page_file = os.path.join(temp_dir, f"{page_name}.md")
@@ -47,7 +49,7 @@ class WikiInitializer:
                 # Add and commit
                 subprocess.run(['git', 'add', f"{page_name}.md"], 
                              cwd=temp_dir, check=True)
-                commit_message = message or f"Update {page_name} wiki page"
+                commit_message = message or f"Add {page_name} wiki page"
                 subprocess.run(['git', 'commit', '-m', commit_message], 
                              cwd=temp_dir, check=True)
                 
@@ -59,8 +61,71 @@ class WikiInitializer:
                 
             except subprocess.CalledProcessError as e:
                 print(f"❌ Error updating wiki page {page_name}: {e}")
+                if e.stderr:
+                    print(f"   Error details: {e.stderr}")
                 return False
     
+    def _create_wiki_bootstrap_file(self, page_name, content):
+        """Create a temporary file that can be used to bootstrap wiki"""
+        import tempfile
+        import os
+        
+        # Create a temporary directory for wiki content
+        wiki_dir = "wiki-content"
+        if not os.path.exists(wiki_dir):
+            os.makedirs(wiki_dir)
+        
+        # Write the content to a file
+        with open(f"{wiki_dir}/{page_name}.md", 'w', encoding='utf-8') as f:
+            f.write(content)
+        
+        print(f"📄 Created bootstrap file for {page_name}")
+        
+        # Also try to create the page via GitHub Issues API as a workaround
+        self._create_wiki_via_issues(page_name, content)
+    
+    def _create_wiki_via_issues(self, page_name, content):
+        """Alternative method to document wiki content"""
+        try:
+            # Create a documentation issue with the wiki content
+            issue_title = f"Wiki Content: {page_name.replace('-', ' ')}"
+            issue_body = f"""# Wiki Page Content: {page_name}
+
+This issue contains the content for the `{page_name}` wiki page. 
+
+**Note**: This content should be manually copied to the GitHub Wiki at: https://github.com/{self.repo_owner}/{self.repo_name}/wiki/{page_name}
+
+## Content:
+
+{content}
+
+---
+*This issue was auto-generated to bootstrap wiki content. Once the wiki page is created, this issue can be closed.*
+"""
+            
+            api_url = f"https://api.github.com/repos/{self.repo_owner}/{self.repo_name}/issues"
+            headers = {
+                'Authorization': f'token {self.github_token}',
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json'
+            }
+            
+            issue_data = {
+                'title': issue_title,
+                'body': issue_body,
+                'labels': ['documentation', 'wiki-content', 'auto-generated']
+            }
+            
+            response = requests.post(api_url, headers=headers, json=issue_data)
+            if response.status_code == 201:
+                issue_url = response.json().get('html_url')
+                print(f"📋 Created documentation issue for {page_name}: {issue_url}")
+            else:
+                print(f"⚠️ Could not create issue for {page_name}: {response.status_code}")
+                
+        except Exception as e:
+            print(f"⚠️ Could not create documentation issue for {page_name}: {e}")
+
     def get_home_content(self):
         """Generate Home page content"""
         return f"""# EU Cyber Resilience Act (CRA) Compliance Hub
@@ -179,7 +244,7 @@ The **EU Cyber Resilience Act (CRA)** is landmark European legislation designed 
 - Products already covered by specific EU legislation
 - Open-source software (with conditions)
 - Products for research and development only
-- Custom products for single customers
+- Custom products for a single customer
 
 ## Regulatory Framework
 
