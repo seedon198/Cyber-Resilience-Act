@@ -30,6 +30,10 @@ class WikiNewsUpdater:
             'cybersecurity_news': {
                 'url': 'https://feeds.feedburner.com/SecurityWeek',
                 'type': 'rss'
+            },
+            'gnews': {
+                'type': 'gnews',
+                'keywords': ['cyber resilience act', 'CRA', 'EU cybersecurity', 'cyber resilience act EU']
             }
         }
         
@@ -60,6 +64,69 @@ class WikiNewsUpdater:
             print(f"Error fetching RSS from {url}: {e}")
             return []
     
+    def fetch_gnews_articles(self, keywords, max_results=10):
+        """Fetch news from Google News using gnews library"""
+        try:
+            from gnews import GNews
+            
+            gnews = GNews(
+                language='en',
+                country='US',
+                period='30d',  # Last 30 days
+                max_results=max_results
+            )
+            
+            relevant_articles = []
+            
+            for keyword in keywords:
+                print(f"Fetching from GNews for keyword: {keyword}")
+                try:
+                    news_items = gnews.get_news(keyword)
+                    
+                    for item in news_items:
+                        # Parse the published date
+                        try:
+                            # GNews returns dates in various formats, try to parse
+                            if 'published date' in item:
+                                published_str = item['published date']
+                                # Try different date formats
+                                for date_format in ['%a, %d %b %Y %H:%M:%S %Z', '%Y-%m-%d', '%d %b %Y']:
+                                    try:
+                                        article_date = datetime.strptime(published_str, date_format)
+                                        break
+                                    except ValueError:
+                                        continue
+                                else:
+                                    # If no format works, use current date
+                                    article_date = datetime.now()
+                            else:
+                                article_date = datetime.now()
+                        except:
+                            article_date = datetime.now()
+                        
+                        # Filter for recent articles (last 30 days)
+                        if article_date > datetime.now() - timedelta(days=30):
+                            relevant_articles.append({
+                                'title': item.get('title', 'No Title'),
+                                'link': item.get('url', '#'),
+                                'date': article_date.strftime('%Y-%m-%d'),
+                                'summary': item.get('description', '')[:200] + '...' if len(item.get('description', '')) > 200 else item.get('description', ''),
+                                'source': f"Google News ({item.get('publisher', {}).get('title', 'Unknown')})"
+                            })
+                            
+                except Exception as e:
+                    print(f"Error fetching from GNews for keyword '{keyword}': {e}")
+                    continue
+                    
+            return relevant_articles
+            
+        except ImportError:
+            print("GNews library not available, skipping Google News")
+            return []
+        except Exception as e:
+            print(f"Error fetching from GNews: {e}")
+            return []
+
     def generate_wiki_content(self, articles):
         """Generate wiki content"""
         if not articles:
@@ -117,6 +184,7 @@ This page automatically monitors the following sources for CRA-related updates:
 | EU Official Portal | Web Scraping | Daily |
 | ENISA News | Web Scraping | Daily |
 | Security Week | RSS Feed | Daily |
+| Google News | GNews API | Daily |
 | Industry Reports | Various Sources | Weekly |
 
 ## Integration with Documentation
@@ -197,6 +265,9 @@ Latest developments automatically inform updates to:
             
             if source_config['type'] == 'rss':
                 articles = self.fetch_rss_news(source_config['url'])
+                all_articles.extend(articles)
+            elif source_config['type'] == 'gnews':
+                articles = self.fetch_gnews_articles(source_config['keywords'])
                 all_articles.extend(articles)
             
             time.sleep(1)  # Be respectful to servers
