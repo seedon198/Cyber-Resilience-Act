@@ -1,0 +1,59 @@
+name: Update CRA News and Resources
+
+on:
+  schedule:
+    # Run daily at 6 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    # Allow manual triggering
+
+jobs:
+  update-cra-news:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        pip install requests beautifulsoup4 feedparser python-dateutil
+
+    - name: Fetch CRA news and updates
+      run: |
+        python .github/scripts/fetch_cra_news.py
+
+    - name: Download official documents
+      run: |
+        python .github/scripts/download_official_docs.py
+
+    - name: Check for changes
+      id: check_changes
+      run: |
+        git diff --exit-code docs/news-updates.md || echo "changes=true" >> $GITHUB_OUTPUT
+
+    - name: Commit and push changes
+      if: steps.check_changes.outputs.changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add docs/news-updates.md docs/official-documents/
+        git commit -m "Auto-update: Latest CRA news and official documents $(date +'%Y-%m-%d')"
+        git push
+
+    - name: Create summary
+      run: |
+        echo "## CRA News Update Summary" >> $GITHUB_STEP_SUMMARY
+        echo "- Fetched latest news from multiple sources" >> $GITHUB_STEP_SUMMARY
+        echo "- Updated official document links" >> $GITHUB_STEP_SUMMARY
+        echo "- Processed on $(date)" >> $GITHUB_STEP_SUMMARY

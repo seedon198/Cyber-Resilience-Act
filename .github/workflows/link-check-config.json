@@ -1,0 +1,27 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^https://www\\.linkedin\\.com/"
+    },
+    {
+      "pattern": "^https://x\\.com/"
+    },
+    {
+      "pattern": "^https://eur-lex\\.europa\\.eu/"
+    }
+  ],
+  "timeout": "20s",
+  "retryOn429": true,
+  "retryCount": 3,
+  "fallbackHttpStatus": [
+    400,
+    401,
+    403,
+    404,
+    405,
+    500,
+    502,
+    503,
+    504
+  ]
+}

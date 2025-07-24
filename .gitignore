@@ -1,0 +1,74 @@
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs and Runtime Data
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency Directories
+node_modules/
+vendor/
+
+# Build and Distribution
+dist/
+build/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment and Configuration
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Cache and Temporary Files
+.cache/
+.temp/
+.tmp/
+*.tmp
+*.temp
+
+# Documentation Generation
+docs/_build/
+docs/.doctrees/
+
+# Security and Sensitive Data
+*.key
+*.pem
+*.crt
+*.p12
+config/secrets.yml
+secrets.json
+
+# Testing and Coverage
+coverage/
+.coverage
+.pytest_cache/
+test-results/
+
+# Package Manager Lock Files (optional - uncomment if needed)
+# package-lock.json
+# yarn.lock
+# Pipfile.lock
+
+# Auto-generated Content (by GitHub Actions)
+docs/news-updates.md
+docs/latest-cra-news.json
