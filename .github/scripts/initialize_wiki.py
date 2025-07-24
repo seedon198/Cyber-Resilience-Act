@@ -28,7 +28,7 @@ class WikiInitializer:
         import tempfile
         
         with tempfile.TemporaryDirectory() as temp_dir:
-            wiki_repo = f"https://{self.github_token}@github.com/{self.repo_owner}/{self.repo_name}.wiki.git"
+            wiki_repo = f"https://x-access-token:{self.github_token}@github.com/{self.repo_owner}/{self.repo_name}.wiki.git"
             
             try:
                 # Clone wiki repo
